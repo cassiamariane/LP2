@@ -1,24 +1,35 @@
 #include <stdio.h>
 
-int main()
-{
-    int vetor[20];
+int preenche(int numeros[20]){
     for(int i = 0; i < 20; i++){
-        printf("Digite um número: ");
-        scanf(" %d", &vetor[i]);
-    };
+        printf("Digite o numero: ");
+        scanf("%d", &numeros[i]);
+    }
+    return numeros;
+}
 
-    printf("Vetor:");
+int trocar(int numeros[20]){
+    int aux;
+    for(int i = 0; i < 10; i++){
+        aux = numeros[i];
+        numeros[i] = numeros[19 - i];
+        numeros[19 - i] = aux;
+    }
+    return numeros;
+}
 
+void main(){
+    int numeros[20];
+
+    preenche(numeros);
+    printf("Vetor: ");
     for(int i = 0; i < 20; i++){
-        printf(" %d", vetor[i]);
-    };
-    
-     printf("\n Novo vetor: ");
+        printf("%d\n", numeros[i]);
+    }
 
-    for(int j = 20; j >= 1; j--){
-        printf(" %d", vetor[j]);
-    };
-
-    return 0;
+    trocar(numeros);
+    printf("Vetor trocado: ");
+    for(int i = 0; i < 20; i++){
+        printf("%d\n", numeros[i]);
+    }
 }
